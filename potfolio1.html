@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaushal Sharma | Portfolio</title>
+    <style>
+        /* ---------- Global Styling ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6A00FF, #FF3CAC, #FFB800);
+            color: var(--text);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            transition: 0.4s ease;
+            background: #0d1117;
+            color: #e6edf3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ---------- Navbar ---------- */
+        header {
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d1117;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            border-bottom: 1px solid #1f2937;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        nav a {
+            margin-left: 20px;
+            font-size: 16px;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* ---------- Hero Section ---------- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 500px;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .btn {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #2ea043;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #238636;
+        }
+
+        /* ---------- About Section ---------- */
+        .section {
+            padding: 80px 10%;
+        }
+
+        h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 800px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* ---------- Projects ---------- */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project-card hover-effect {
+            padding: 20px;
+            background: #161b22;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .project-card hover-effect:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: #161b22;
+        }
+            /* ---------- Scroll Behavior ---------- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ---------- Light/Dark Mode (kept vars — no JS toggle) ---------- */
+        :root {
+            --bg: #0d1117;
+            --text: #e6edf3;
+            --card: #161b22;
+            --accent: #2ea043;
+        }
+
+        body.light-mode {
+            --bg: #f5f5f5;
+            --text: #1a1a1a;
+            --card: #ffffff;
+            --accent: #007bff;
+        }
+
+        body {
+            transition: 0.4s ease;
+            background: linear-gradient(135deg, #6A00FF, #FF3CAC, #FFB800);
+            color: var(--text);
+        }
+
+        /* ---------- Smooth Fade Animation ---------- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------- Typing Animation ---------- */
+        .typing {
+            width: 17ch;
+            overflow: hidden;
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            animation: typing 3s steps(20) infinite alternate;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 17ch; }
+        }
+
+        /* ---------- Glassmorphism Buttons ---------- */
+        .btn {
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* ---------- Responsive Layout ---------- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    
+    <header>
+        <h1>Kaushal</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:10px;">
+            <!-- Theme toggle removed as requested -->
+            <button id="menuToggle" aria-label="Menu" class="btn" style="display:none;padding:8px 12px;"><i class="fa fa-bars"></i></button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-card fade-in" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:center;">
+            <div class="profile-card" style="width:180px;flex-shrink:0;">
+                <!-- Photo style C: square rounded card -->
+                <div class="profile-inner" style="border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.4);background:rgba(255,255,255,0.06);padding:6px;">
+                    <img id="profileImage" src="profile.jpeg" alt="Kaushal" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:12px;" />
+                </div>
+                
+            </div>
+
+            <div style="max-width:640px;text-align:left;">
+                <h2>Hi, I'm <span style="font-weight:700">Kaushal Sharma</span> </h2>
+                <p class="typing" id="typingText">Web Developer — AI enthusiast — Problem solver</p>
+                <p style="margin-top:14px;opacity:0.9;">I build elegant web experiences, AI integrations, and tools that people actually enjoy using.</p>
+
+                <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
+                    <!-- Hire Me and resume/upload buttons removed as requested -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <h3>About Me</h3>
+        <p>
+            I'm a passionate developer with interest in AI/ML, web development and problem solving.
+            I enjoy building things that make people's life easier. Learning every day and
+            constantly improving myself, I aim to create work I can be proud of.
+        </p>
+    </section>
+
+    <section id="projects" class="section">
+        <h3>Projects</h3>
+        <div class="projects fade-in">
+            <!-- Project 1 -->
+            <div class="project-card hover-effect">
+                <h4>Weather App</h4>
+                <p>A responsive weather forecasting app with animated UI and voice input.</p>
+                <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <a href="https://kaushalsharma09.github.io/weather-app/" target="_blank" class="btn" style="padding:8px 14px;font-size:14px;">Live Demo</a>
+                    <a href="https://github.com/Kaushalsharma09/weather-app" target="_blank" class="btn" style="padding:8px 14px;font-size:14px;">GitHub</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card hover-effect">
+                <h4>RSSmart</h4>
+                <p>A responsive and interactive commercial website.</p>
+                <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <a href="https://kaushalsharma09.github.io/rssmartdemo/" target="_blank" class="btn" style="padding:8px 14px;font-size:14px;">Live Demo</a>
+                    <a href="https://github.com/Kaushalsharma09/rssmartdemo" target="_blank" class="btn" style="padding:8px 14px;font-size:14px;">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h3>Contact</h3>
+        <div style="display:flex;gap:30px;flex-wrap:wrap;align-items:flex-start;">
+            <div style="flex:1;min-width:260px;">
+                <p>Send me a message — I usually reply within 24-48 hours.</p>
+                <!-- EmailJS form (Contact: Option C) -->
+                <form id="contactForm" class="fade-in" style="margin-top:16px;display:flex;flex-direction:column;gap:12px;">
+                    <input type="text" id="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:var(--card);color:var(--text);" />
+                    <input type="email" id="email" placeholder="Your email" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:var(--card);color:var(--text);" />
+                    <textarea id="message" rows="5" placeholder="Message" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:var(--card);color:var(--text);"></textarea>
+                    <div style="display:flex;gap:10px;align-items:center;">
+                        <button type="submit" class="btn">Send Message</button>
+                        <div id="formStatus" style="opacity:0.9;"></div>
+                    </div>
+
+                    <!-- Contact info moved below the form for convenience (resume/upload removed) -->
+                    <div style="margin-top:18px;padding:12px;border-radius:10px;background:var(--card);">
+                        <h5 style="margin-bottom:6px;">Contact Info</h5>
+                        <p style="font-size:14px;">Email: <strong>kaushalsharma.work@gmail.com</strong></p>
+                        <p style="font-size:14px;">Location: Gwalior, India</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right column (resume + upload UI) removed as requested -->
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Kaushal Sharma — All Rights Reserved</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+    <script>
+        // Initialize EmailJS — replace with your user id
+        try { emailjs.init('YOUR_EMAILJS_USER_ID'); } catch (e) { console.warn('EmailJS not initialized — replace YOUR_EMAILJS_USER_ID'); }
+
+        // Typing effect (more natural)
+        const typingEl = document.getElementById('typingText');
+        const phrases = ['Web Developer', 'AI Enthusiast', 'Problem Solver', 'Frontend Developer'];
+        let pIdx = 0, ch = 0, forward = true;
+        function tick() {
+            const current = phrases[pIdx];
+            if (forward) {
+                ch++;
+                typingEl.textContent = current.slice(0, ch);
+                if (ch === current.length) { forward = false; setTimeout(tick, 900); return; }
+            } else {
+                ch--;
+                typingEl.textContent = current.slice(0, ch);
+                if (ch === 0) { forward = true; pIdx = (pIdx + 1) % phrases.length; }
+            }
+            setTimeout(tick, forward ? 80 : 40);
+        }
+        tick();
+
+        // Image upload preview
+        const imageUpload = document.getElementById('imageUpload');
+        const profileImage = document.getElementById('profileImage');
+        imageUpload.addEventListener('change', e => {
+            const f = e.target.files[0];
+            if (!f) return;
+            const url = URL.createObjectURL(f);
+            profileImage.src = url;
+        });
+
+        // Contact form send via EmailJS
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            formStatus.textContent = 'Sending...';
+            // Replace 'service_id' and 'template_id' with your EmailJS values
+            emailjs.send('service_id', 'template_id', templateParams)
+                .then(() => { formStatus.textContent = 'Sent!'; contactForm.reset(); })
+                .catch(err => { formStatus.textContent = 'Failed to send — check console.'; console.error(err); });
+        });
+
+        // Simple scroll reveal for elements with .fade-in
+        function revealOnScroll(){
+            document.querySelectorAll('.fade-in').forEach(el =>{
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 60) el.style.animationPlayState = 'running';
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Responsive nav menu
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.querySelector('header nav');
+        function updateMenuForWidth(){
+            if (window.innerWidth < 760) { nav.style.display = 'none'; menuToggle.style.display = 'inline-block'; }
+            else { nav.style.display = 'block'; menuToggle.style.display = 'none'; }
+        }
+        menuToggle.addEventListener('click', ()=>{ nav.style.display = (nav.style.display === 'block') ? 'none' : 'block'; });
+        window.addEventListener('resize', updateMenuForWidth);
+        updateMenuForWidth();
+    </script>
+</body>
+</html>
